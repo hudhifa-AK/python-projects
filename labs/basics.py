@@ -21,7 +21,7 @@ for num in range(100,1000):
 print("There are", count, "three digit numbers that are divisible by 17")
 
 # Sum of consecutive integers
-#(a) Write a program that prompts for an integer — let’s call it X — and then finds the sum of X consecutive integers starting at 1. That is, if X = 5, you will find the sum of 1 + 2 + 3 + 4 + 5 = 15.
+# (a) Write a program that prompts for an integer — let’s call it X — and then finds the sum of X consecutive integers starting at 1. That is, if X = 5, you will find the sum of 1 + 2 + 3 + 4 + 5 = 15.
 
 x = int(input("Type a number: "))
 total = 0
@@ -42,7 +42,7 @@ for i in range(1, x+1):
     total += i
     print(total)
 
-#(c) Modify your program again to only print sums if the sum is divisible by the number of operands. For example, with the sum 1 + 2 + 3 + 4 + 5 = 15, there are five operands and the sum, 15, is divisible by 5, so that sum will be printed. (Do you notice a pattern?)
+# (c) Modify your program again to only print sums if the sum is divisible by the number of operands. For example, with the sum 1 + 2 + 3 + 4 + 5 = 15, there are five operands and the sum, 15, is divisible by 5, so that sum will be printed. (Do you notice a pattern?)
 
 x = int(input("Type a number: "))
 total = 0
@@ -130,7 +130,7 @@ for char in my_str:
     print(char, end=" ")
 
 # Write a Python program that will calculate the length of a string
-#(We already have a function len that does that, but we want to implement our own)
+# (We already have a function len that does that, but we want to implement our own)
 
 my_str = input("Input a string: ")
 index = 0
@@ -151,7 +151,7 @@ print(my_str[:6])
 # Write a Python program that reads a string and prints a string that is made up of the first two characters and the last two characters.
 # If the string has a length less than 4 the program prints a message on the screen.
 
-#For example: “hello there” will result in “here”
+# For example: “hello there” will result in “here”
 
 my_str = input("Enter a string: ")
 new_str = " "
@@ -162,7 +162,7 @@ else:
     print(new_str)
 
 # Given a variable S containing a string of odd length:
-#(a) Write an expression to print the middle character.
+# (a) Write an expression to print the middle character.
 
 my_str = input("Enter a string: ")
 
@@ -189,8 +189,8 @@ else:
     index = int(len(my_str) / 2 - 0.5)
     print(my_str[:index])
 
-#(c) Write an expression to print the string from the middle character to the end (not
-#including the middle character).
+# (c) Write an expression to print the string from the middle character to the end (not
+# including the middle character).
 
 my_str = input("Enter a string: ")
 
@@ -222,8 +222,8 @@ for char in my_string:
 print(encrypted_string)
 
 #  (a) Suppose you want to print a line full of '#' characters. For simplicity, let’s say that a
-#line can have only 80 characters. One way is to create a long string to be printed. How
-#would you do it more elegantly in Python using the plus operation (+) of strings?
+# line can have only 80 characters. One way is to create a long string to be printed. How
+# would you do it more elegantly in Python using the plus operation (+) of strings?
 
 my_str = ""
 for i in range(80):
@@ -231,9 +231,9 @@ for i in range(80):
 print(my_str)
 
 # Suppose you want to print a column full of '#' characters. For simplicity, let’s
-#say that a column could have only 30 characters. Similar to (a), how would you do
-#it more elegantly in Python using the multiply operation (*) of strings? Hint: Use
-#the newline character (‘\n’).
+# say that a column could have only 30 characters. Similar to (a), how would you do
+# it more elegantly in Python using the multiply operation (*) of strings? Hint: Use
+# the newline character (‘\n’).
 
 my_str = "#"
 new_str = my_str * 30
@@ -241,7 +241,7 @@ for char in new_str:
     print(char)
 
 # Suppose you have a string ab_string = 'abababababababab' . Write an
-#expression to remove all the b’s and create a string string = 'aaaaaaaa' .
+# expression to remove all the b’s and create a string string = 'aaaaaaaa' .
 
 ab_string = 'abababababababab'
 a_string = ''
@@ -251,7 +251,7 @@ for letter in ab_string:
 print(a_string)
 
 # Write a function that takes a number as a parameter and prints the
-#numbers from 1 to that number on the screen.
+# numbers from 1 to that number on the screen.
 
 def numbers_upto(n):
     if n == 0:
@@ -262,8 +262,8 @@ def numbers_upto(n):
     return
 
 # Write a function that takes a number as a parameter and iterates from 0
-#to that number. For each iteration, it will check if the current number is even or odd,
-#and report that to the screen (e.g. “1 is odd”, “2 is even”).
+# to that number. For each iteration, it will check if the current number is even or odd,
+# and report that to the screen (e.g. “1 is odd”, “2 is even”).
 
 def numbers_even_odd(n):
     for i in range(n+1):
@@ -274,8 +274,8 @@ def numbers_even_odd(n):
     return
 
 # Write a function that takes a number as a parameter, iterates from 0 to
-#that number, and for each iteration of the loop, multiplies the current number by 9
-#and prints the result (e.g. “2 * 9 = 18”).
+# that number, and for each iteration of the loop, multiplies the current number by 9
+# and prints the result (e.g. “2 * 9 = 18”).
 
 def numbers_by_9(n):
     for i in range(n+1):
@@ -283,7 +283,7 @@ def numbers_by_9(n):
     return
 
 # Write a function that asks the user for a number and prints the sum of all
-#numbers from 1 to the number they enter.
+# numbers from 1 to the number they enter.
 
 def numbers_sum(n):
     index = 0
@@ -300,3 +300,115 @@ def factorial(n):
         index *= i
     print(index)
     return
+
+# Write a Python function to sum all numbers in a list.
+# Sample list: [1, 2, 3, 4, 5, 6]. Expected Output: 21
+
+numbers = [1,2,3,4,5,6]
+addition = 0
+for n in numbers:
+    addition += n
+print(addition)
+
+# Write a Python function to get the largest number from a list. 
+# Sample list: [1, 2, 3, 4, 5, 6]. Expected Output: 6
+
+numbers = [1,2,3,4,5,6]
+numbers.sort()
+print(numbers[-1:])
+
+# Write a Python function that takes a list of words and counts how many
+# of them begin with ‘o’.
+# Sample list: ['Always', 'look', 'on', 'the', 'bright', 'side', 'of', 'life']
+# Expected Output: 2
+
+words = ['Always', 'look', 'on', 'the', 'bright', 'side', 'of', 'life']
+count = 0
+for word in words:
+    if word[0] == 'o':
+        count += 1
+print(count)
+
+# (modify previous Ex) Write a Python function that takes a list of words and a
+# character, and counts how many of the words in the list begin with that character.
+
+def first_letter_check(words, letter: str):
+    count = 0
+    for word in words:
+        if word[0] == letter:
+            count += 1
+    return count
+l1 = ['Always', 'look', 'on', 'the', 'bright', 'side', 'of', 'life']
+print(first_letter_check(l1, 'o'))
+
+# Write a Python function that takes a list of numbers and returns a
+# new list containing only the even numbers from the first list.
+# Sample list: [1, 2, 3, 4, 5, 6]. Expected Output: [2, 4, 6]
+
+def even_numbers(num: list) -> list:
+    even_list = []
+    for number in num:
+        if number % 2 == 0:
+            even_list.append(number)
+    return even_list
+listofnums = even_numbers([1,2,3,4,5,6])
+print(listofnums)
+
+# Create a list of 100 integers whose value and index are the same, e.g., L[5]=5.
+
+my_list = []
+for i in range(100):
+   my_list.append(i)
+print(my_list)
+
+# Write a Python program to remove duplicates from a list.
+# Sample list: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6]. Expected Output: [1, 2, 3, 4, 5, 6]
+
+my_list = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6]
+for num in my_list:
+    for num2 in my_list:
+        if num == num2:
+            my_list.remove(num2)
+print(my_list)
+
+# Write a Python function that takes two lists and returns True if they have at least one common member.
+# Sample list: [1, 2, 3, 4, 5, 6] and [10, 9, 8, 7, 6]. Expected Output: True
+
+def same_number_check(num1, num2):
+    for i in nums1:
+        for j in nums2:
+            if i == j:
+                return True
+    return False
+
+nums1 = [1, 2, 3, 4, 5, 6]
+nums2 = [10, 9, 8, 7, 6]
+
+print(same_number_check(nums1, nums2))
+
+# Write a Python program to get the difference between the two lists.
+# Sample list: [1, 2, 3, 4, 5, 6] minus [10, 9, 8, 7, 6]
+# Expected Output: [1, 2, 3, 4, 5]
+# Sample list: [10, 9, 8, 7, 6] minus [1, 2, 3, 4, 5, 6]
+# Expected Output: [10, 9, 8, 7]
+
+nums2 = [1, 2, 3, 4, 5, 6]
+nums1 = [10, 9, 8, 7, 6]
+
+for i in nums2:
+    for j in nums1:
+        if i == j:
+            nums1.remove(i)
+print(nums1)
+
+# Write a Python program to convert a list of multiple integers into a single integer. 
+# Sample list: [11, 33, 50]
+# Expected Output: 113350
+
+nums1 = [11, 33, 50]
+processing_num = ""
+result = 0
+for num in nums1:
+    processing_num += str(num)
+result = int(processing_num)
+print(result)
