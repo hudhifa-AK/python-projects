@@ -249,3 +249,54 @@ for letter in ab_string:
     if letter == 'a':
         a_string += letter
 print(a_string)
+
+# Write a function that takes a number as a parameter and prints the
+#numbers from 1 to that number on the screen.
+
+def numbers_upto(n):
+    if n == 0:
+        print(0)
+    else:
+        for i in range(n):
+            print(i + 1)
+    return
+
+# Write a function that takes a number as a parameter and iterates from 0
+#to that number. For each iteration, it will check if the current number is even or odd,
+#and report that to the screen (e.g. “1 is odd”, “2 is even”).
+
+def numbers_even_odd(n):
+    for i in range(n+1):
+        if i % 2 == 0:
+            print(i, "is even")
+        else:
+            print(i, "is odd")
+    return
+
+# Write a function that takes a number as a parameter, iterates from 0 to
+#that number, and for each iteration of the loop, multiplies the current number by 9
+#and prints the result (e.g. “2 * 9 = 18”).
+
+def numbers_by_9(n):
+    for i in range(n+1):
+        print(i, "* 9 =", i * 9)
+    return
+
+# Write a function that asks the user for a number and prints the sum of all
+#numbers from 1 to the number they enter.
+
+def numbers_sum(n):
+    index = 0
+    for i in range(n+1):
+        index += i
+    print(index)
+    return
+
+# Write a function to print a factorial of a number.
+
+def factorial(n):
+    index = 1
+    for i in range(1,n+1):
+        index *= i
+    print(index)
+    return
