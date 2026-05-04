@@ -412,3 +412,61 @@ for num in nums1:
     processing_num += str(num)
 result = int(processing_num)
 print(result)
+
+# Write a function that takes a list as an argument and veriﬁes whether the list is sorted. Return True if sorted; False if not.
+
+def list_sorted(l : list):
+    for i in range(len(l) - 1):
+        if l[i] > l[i + 1]:
+            return False
+    return True
+
+# Remove odds or evens:
+# (a) Write a function that takes a list of integers as an argument, removes even numbers from the list, and returns the modified list.
+# (b) Write a function that takes a list of integers as an argument, removes odd numbers from the list, and returns the modified list.
+# (c) Write a function that takes a list of integers and a Boolean as arguments. If the Boolean is True, the function removes odd numbers 
+# from the list; otherwise, evens are removed. The function returns the modified list.
+
+def no_evens(lst : list) -> list:
+    for num in lst:
+        if num % 2 == 0:
+            lst.remove(num)
+    return lst
+
+def no_odds(lst : list) -> list:
+    for num in lst:
+        if num % 2 != 0:
+            lst.remove(num)
+    return lst
+
+def even_odds(lst : list) -> list:
+    if lst[0] == True:
+        lst.remove(lst[0])
+        for num in lst:
+            if num % 2 != 0:
+                lst.remove(num)
+    else:
+        lst.remove(lst[0])
+        for num in lst:
+            if num % 2 == 0:
+                lst.remove(num)
+    return lst
+
+# A palindrome is a word that is the same backward as forward. The word rotor is an example of a palindrome.
+# (a) Write a function that returns True if a string is a palindrome. (Hints: You can create a list from a
+# string using the list() function. Lists are handy, because there is a reverse() method.)
+# (b) Write a program that uses your function. The program should prompt for a string, call the 
+# function, and then print results (something other than True or False).
+# (c) Some palindrome rules ignore spaces and capitalization, so “Never odd or even” is an acceptable palindrome. Improve your function 
+# to ignore spaces and capitalization. (Hints: Lists have a remove() method, and strings have a lower() method.)
+
+def check_palindrome(words) -> bool:
+    words = words.lower().replace(' ', '')
+    return words == words[::-1]
+
+word_input = input("Enter a word or phrase to check if it is palindrome: ")
+
+if check_palindrome(word_input):
+    print(word_input, "is a palindrome")
+else:
+    print(word_input, "is not a palindrome")
