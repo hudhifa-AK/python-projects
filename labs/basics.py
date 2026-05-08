@@ -470,3 +470,356 @@ if check_palindrome(word_input):
     print(word_input, "is a palindrome")
 else:
     print(word_input, "is not a palindrome")
+
+# There are websites such as https://www.carsireland.ie/ that provide information about secondhand vehicles.
+# Design a base class for vehicles with fields such as model year, total mileage, Vehicle Identification Number (VIN), 
+# engine, transmission, options, and etc. Design subclasses for car, truck, SUV, and minivan. Think about the 
+# specific fields and methods required for the subclasses. Instantiate your classes with examples so you can test your code.
+
+class Vehicle(object):
+    def __init__(self, name, model_year, mileage, vehicle_id, engine, transmission, options ):
+        self.name = name
+        self.model = model_year
+        self.mileage = mileage
+        self.vehicle_id = vehicle_id
+        self.engine = engine
+        self.transmission = transmission
+        self.options = options
+
+    def age(self, current_year):
+        return f"{current_year - self.model} years old"
+
+    def update_milage(self, new_mileage):
+        self.mileage = new_mileage
+
+    def __str__(self):
+        return (f"{self.model} {self.name}\n"
+                f"Mileage: {self.mileage}\n"
+                f"Vehicle ID: {self.vehicle_id}\n"
+                f"Engine: {self.engine}\n"
+                f"Transmission: {self.transmission}\n"
+                f"Options: {self.options}\n")
+
+class Truck(Vehicle):
+    def __init__(self, name, model_year, mileage, vehicle_id, engine, transmission, options, max_load):
+        Vehicle.__init__(self, name, model_year, mileage, vehicle_id, engine, transmission, options)
+        self.max_load = max_load
+
+    def age(self, current_year):
+        return f"This truck is {current_year - self.model} years old"
+
+    def __str__(self):
+        return Vehicle.__str__(self) + f"Max load: {self.max_load}\n"
+
+class Car(Vehicle):
+    def __init__(self, name, model_year, mileage, vehicle_id, engine, transmission, options, fuel_type):
+        Vehicle.__init__(self, name, model_year, mileage, vehicle_id, engine, transmission, options)
+        self.fuel_type = fuel_type
+
+    def fuel_type(self):
+        return self.fuel_type
+
+    def __str__(self):
+        return Vehicle.__str__(self) + f"Fuel Type: {self.fuel_type}\n"
+    
+class Minivan(Vehicle):
+    def __init__(self, name, model_year, mileage, vehicle_id, engine, transmission, options, seating_capacity):
+        Vehicle.__init__(self, name, model_year, mileage, vehicle_id, engine, transmission, options)
+        self.seating_capacity = seating_capacity
+    
+    def __str__(self):
+        return Vehicle.__str__(self) + f"No. of seats: {self.seating_capacity}\n"
+
+# Design a class to represent a bank account. Some information you might want in a bank account are the IBAN,
+# account number, available funds, a list with the last 5 transactions. You might also add methods to withdraw
+# and deposit money. Then create a subclass MinimumBalanceAccount that inherits bankAccount.
+# MinimumBalanceAccount should have a minimum balance value and overwrite the method withdrawal
+# so the new balance is not below the minimum balance after withdrawing.
+
+class BankAccount(object):
+    def __init__(self, iban, account_number, balance=0.0):
+        self.iban = iban
+        self.account_number = account_number
+        self.balance = balance
+        self.last_transactions = []
+
+    def deposit(self, amount):
+        self.balance += amount
+        self.last_transactions.append("+" + str(amount))
+        if len(self.last_transactions) > 5:
+            self.last_transactions.pop(0)
+
+    def withdraw(self, amount):
+        self.balance -= amount
+        self.last_transactions.append("-" + str(amount))
+        if len(self.last_transactions) > 5:
+            self.last_transactions.pop(0)
+
+    def show_balance(self):
+        return self.balance
+
+    def transaction_history(self):
+        return self.last_transactions
+
+class MinimumBalanceAccount(BankAccount):
+    def __init__(self, iban, account_number, balance=0.0):
+        BankAccount.__init__(self, iban, account_number, balance)
+
+    def withdraw(self, amount):
+        if self.balance >= amount:
+            self.balance -= amount
+            self.last_transactions.append("-" + str(amount))
+            if len(self.last_transactions) > 5:
+                self.last_transactions.pop(0)
+        else:
+            print("Insufficient funds")
+
+
+# Complete the code for the classes Student and Registration using composition. Make sure 
+# the main code works after adding your implementation.
+
+class Student:
+   """
+   INSERT YOUR DOCSTRING INFORMATION HERE
+   """
+   def __init__(self, study_type, f_name, l_name):
+       # YOUR CODE GOES HERE
+       pass
+   # YOUR CODE GOES HERE
+
+
+class RegistrationData:
+   """
+   INSERT YOUR DOCSTRING INFORMATION HERE
+   """
+   def __init__(self, address, registration_fee, study_type, f_name, l_name, s_id="NA"):
+       # YOUR CODE GOES HERE
+       pass
+   # YOUR CODE GOES HERE
+
+
+# MAIN SCOPE - UNCOMMENT IT AND RUN AFTER IMPLEMENTING YOUR SOLUTION
+# r = RegistrationData("8 Lower Kevin Street, Dublin 8, Ireland", 1500,
+#                      Student.POSTGRADUATE, "Lucas", "Rizzo")
+# r.display_student_data()
+# print()
+# r.set_student_id_property("C12345")
+# r.display_student_data()
+# print()
+# for course in ("OOP", "Advanced Databases", "Environmental Analytics"):
+#     r.get_student_object().set_courses(course)
+#
+# r.display_student_data()
+# print()
+# print(r.get_student_object())  # extra to match the __str__ additional function
+# print()
+# print(RegistrationData.__doc__)
+
+# Answer below:
+
+class Student:
+    """
+    Represents student name and study type.
+    """
+    UNDERGRADUATE = "Undergraduate"
+    POSTGRADUATE = "Postgraduate"
+
+    def __init__(self, study_type, f_name, l_name):
+        self.study_type = study_type
+        self.f_name = f_name
+        self.l_name = l_name
+        self.courses = []
+
+    def set_courses(self, courses):
+        self.courses.append(courses)
+
+    def __str__(self):
+        return (f"Student: {self.f_name} {self.l_name}\n"
+                f"Study Type: {self.study_type}\n"
+                f"Courses: {self.courses}")
+
+class RegistrationData:
+    """
+    For storing student registration data
+    """
+    def __init__(self, address, registration_fee, study_type, f_name, l_name, s_id="NA"):
+        self.address = address
+        self.registration_fee = registration_fee
+        self.student = Student(study_type, f_name, l_name)
+        self.s_id = s_id
+
+    def display_student_data(self):
+        print("Address:", self.address)
+        print("Registration Fee:", self.registration_fee)
+        print(self.student)
+        print("Student ID:", self.s_id)
+
+    def set_student_id_property(self, student_id):
+        self.s_id = student_id
+
+    def get_student_object(self):
+        return self.student
+
+r = RegistrationData("8 Lower Kevin Street, Dublin 8, Ireland", 1500,
+                      Student.POSTGRADUATE, "Lucas", "Rizzo")
+r.display_student_data()
+print()
+r.set_student_id_property("C12345")
+r.display_student_data()
+print()
+for course in ("OOP", "Advanced Databases", "Environmental Analytics"):
+    r.get_student_object().set_courses(course)
+
+r.display_student_data()
+print()
+print(r.get_student_object())
+print()
+print(RegistrationData.__doc__)
+
+# Write a class called WholeNumber class. The whole numbers are the non-negative integers: 0,1,2, . . . Your class
+# must handle addition, subtraction, and multiplication of whole numbers—no division or mixed-type (whole number 
+# and integer) operations need be handled. Your class must also handle printing—e.g., if x is an instance 
+# of the WholeNumber class, you must be able to print x. 
+# 
+# Two cases must not be allowed: 
+# (1) you must not be able to create a WholeNumber that has a negative value; 
+# (2) an arithmetic operation cannot be allowed to have a negative result. 
+# 
+# In both cases, an error message must be printed. Remember that arithmetic must return a whole number. 
+# That is, if x and y are whole numbers, the result of x + y must be a whole number. 
+
+
+class WholeNumber(object):
+    def __init__(self, whole_number):
+        if whole_number < 0:
+            raise ValueError("Whole number cannot be negative")
+        elif type(whole_number) != int:
+            raise TypeError(whole_number, "is not a whole number")
+        else:
+            self.whole_number = whole_number
+
+    def __add__(self, other):
+        if type(other) != WholeNumber:
+            raise TypeError(other, "is not a whole number")
+        else:
+            return WholeNumber(self.whole_number + other.whole_number)
+
+    def __sub__(self, other):
+        if type(other) != WholeNumber:
+            raise TypeError(other, "is not a whole number")
+        else:
+            answer = self.whole_number - other.whole_number
+
+        if answer < 0:
+            raise ValueError("Operation cannot result in a negative number")
+        else:
+            return WholeNumber(answer)
+
+    def __mul__(self, other):
+        if type(other) != WholeNumber:
+            raise TypeError(other, "is not a whole number")
+        else:
+            return WholeNumber(self.whole_number * other.whole_number)
+
+    def __str__(self):
+        return str(self.whole_number)
+
+x = WholeNumber(3)
+y = WholeNumber(4)
+print (y * x)
+print (y + x)
+print (y - x)
+
+# Write a class for linear equations. A generic linear equation is of the form 
+# y = mx + b where m and b are constants. Include the following methods: 
+# (a) __init__, __str__, __repr__. 
+# (b) value(x), which returns the value of the equation given x.
+# (c) compose(LinearEquation) that composes two linear equations. That is, if y = ax + b and z = cx + d, then y(z)= (a*c)x +(a*d + b) and
+# will be called as y.compose(z). Note that the compose operation is not commutative.
+# (d) __add__ returns the sum of two linear equations. That is, if y = ax + b and 
+# z = cx + d, then y + z = (a + c)x + (b + d).
+
+class LinearEquation:
+    def __init__(self, m, b):
+        self.m = m
+        self.b = b
+
+    def value(self, x):
+        return self.m * x + self.b
+
+    def compose(self, other):
+        if not isinstance(other, LinearEquation):
+            raise TypeError("Must be a LinearEquation")
+
+        else:
+            new_m = self.m * other.m
+            new_b = self.m * other.b + self.b
+
+            return LinearEquation(new_m, new_b)
+
+    def __add__(self, other):
+        if not isinstance(other, LinearEquation):
+            raise TypeError("Must be a LinearEquation")
+
+        else:
+            new_m = self.m + other.m
+            new_b = self.b + other.b
+
+            return LinearEquation(new_m, new_b)
+
+    def __str__(self):
+        return f"y = {self.m}x + {self.b}"
+
+    def __repr__(self):
+        return f"LinearEquation(m={self.m}, b={self.b})"
+
+# Write a Python class to represent a Vector. Implement the following behaviour in your Vector class:
+# 
+# a)	vector addition: If V1 is (x1, y1) and V2 is (x2, y2), the V1+V2 is the vector (x1+x2, y1+y2)
+# b)	vector multiplication by an int: if V is (x, y), the V*n is the vector (x*n, y*n), where n is an integer number
+# c)	vector subtraction: V1-V2 is the same as V1+(V2*-1), a vector (x1-x2,y1-y2)
+# d)	vector multiplication with another vector: implement the dot product. If V1 is (x1,y1) and V2 is (x2,y2), then V1*V2 = x1*x2 + y1*y2, a scalar. Thus the dot product yields a scalar (number), not a vector.
+# e)	vector magnitude: The magnitude based on the Pythagorean theorem for a vector V=(x,y) is the square root of (x + y).
+# 
+# Include any other appropriate methods, such a constructor and __str__, and pay attention to naming standards, private/public, etc.
+
+import math
+
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+
+    def __repr__(self):
+        return f"Vector(x={self.x}, y={self.y})"
+
+    def __add__(self, other):
+        if isinstance(other, Vector):
+            return Vector(self.x + other.x, self.y + other.y)
+
+        raise TypeError("Can only add Vector to Vector")
+
+    def __sub__(self, other):
+        if isinstance(other, Vector):
+            return Vector(self.x - other.x, self.y - other.y)
+
+        raise TypeError("Can only subtract Vector from Vector")
+
+    def __mul__(self, other):
+
+        if isinstance(other, int):
+            return Vector(self.x * other, self.y * other)
+
+        elif isinstance(other, Vector):
+            return (self.x * other.x) + (self.y * other.y)
+
+        raise TypeError("Can only multiply Vector by int or Vector")
+
+    def __rmul__(self, other):
+        return self.__mul__(other)
+
+    def magnitude(self):
+        return math.sqrt((self.x ** 2) + (self.y ** 2))
