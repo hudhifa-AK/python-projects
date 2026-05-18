@@ -1,0 +1,7 @@
+B214 | Book | Dune | Frank Herbert | 1965 | False | L001 | 9780441172719 | 412
+B496 | Book | 1984 | George Orwell | 1949 | True | L001 | 9780451524935 | 328
+B976 | Book | The Hobbit | J.R.R. Tolkien | 1937 | True | L001 | 9780261102217 | 310
+A861 | Article | Artificial Intelligence in Healthcare | Sarah Collins | 2023 | True | L001 | Medical Technology Journal | Issue 12
+A357 | Article | Climate Change and Coastal Cities | Michael Greene | 2021 | True | L001 | Environmental Review | Issue 7
+D786 | DigitalMedia | Python Programming Masterclass | Code Academy | 2022 | True | L001 | Video Course
+D179 | DigitalMedia | History of Ancient Rome | World History Media | 2020 | True | L001 | Podcast

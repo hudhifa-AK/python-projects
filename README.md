@@ -24,6 +24,6 @@ This repository serves as a learning journal for Python. It includes:
 python-projects/
 │
 ├── labs/
-├── CA1: Conundrum code game/
-├── CA2: Doc search engine/
-└── CA3: TBA/
+├── CA1 Conundrum code game/
+├── CA2 Doc search engine/
+└── CA3 Library management system/
