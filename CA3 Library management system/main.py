@@ -328,7 +328,7 @@ class Library(object):
             item.save_item()
 
     def add_new_item(self, item):
-        """Adds a new item to the current library instance's items list"""
+        """Adds a new item to the current library instance's items list (NOT SAVED TO TXT RECORD)"""
         self.items[item.item_id] = item
 
     def remove_item(self, item_id):
@@ -689,7 +689,7 @@ while True: # Main menu system
 
                 while True:
 
-                    print("\n====== ITEM MENU ======")
+                    print("\n====== ITEM EDIT MENU ======")
                     print("1. Add Book")
                     print("2. Add Article")
                     print("3. Add Digital Media")
@@ -827,7 +827,7 @@ while True: # Main menu system
             elif choice == "7":
                 while True:
 
-                    print("\n====== MEMBER MENU ======")
+                    print("\n====== MEMBER EDIT MENU ======")
                     print("1. Add Member")
                     print("2. Edit Member")
                     print("3. Remove Member")
