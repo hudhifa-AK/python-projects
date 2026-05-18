@@ -660,12 +660,13 @@ while True: # Main menu system
         while True: # Admin menu with all functions
             print("\n====== ADMIN MENU ======")
             print("1. View all Items")
-            print("2. Add/Edit/Remove Item")
-            print("3. Borrow Item")
-            print("4. Return Item")
-            print("5. View Members")
-            print("6. Add/Edit/Remove Member")
-            print("7. Back to Start Menu")
+            print("2. View Borrowed Items")
+            print("3. Add/Edit/Remove Item")
+            print("4. Borrow Item")
+            print("5. Return Item")
+            print("6. View Members")
+            print("7. Add/Edit/Remove Member")
+            print("8. Back to Start Menu")
 
             choice = input("Enter choice: ")
 
@@ -675,8 +676,16 @@ while True: # Main menu system
                     print("\n----------------")
                     print(item)
 
-            # --- ADD/EDIT/REMOVE ITEM ---
+            # --- VIEW BORROWED ---
             elif choice == "2":
+                for item in l.items.values():
+                    if not item.available:
+                        print("\n----------------")
+                        print(item)
+
+
+            # --- ADD/EDIT/REMOVE ITEM ---
+            elif choice == "3":
 
                 while True:
 
@@ -780,7 +789,7 @@ while True: # Main menu system
                         print("Invalid option. Try again.")
 
             # --- BORROW ITEM ---
-            elif choice == "3":
+            elif choice == "4":
                 member_id = input("Member ID: ")
                 item_id = input("Item ID: ")
 
@@ -790,7 +799,7 @@ while True: # Main menu system
                     print("Item borrowed successfully.")
 
             # --- RETURN ITEM ---
-            elif choice == "4":
+            elif choice == "5":
                 item_id = input("Item ID: ")
 
                 if l.return_item(item_id):
@@ -799,7 +808,7 @@ while True: # Main menu system
                     print("Item returned successfully.")
 
             # --- VIEW MEMBERS ---
-            elif choice == "5":
+            elif choice == "6":
                 for member in l.members.values():
                     print("\n----------------")
                     print(member)
@@ -815,7 +824,7 @@ while True: # Main menu system
                             print(l.items.get(item))
 
             # --- ADD/EDIT/REMOVE MEMBER ---
-            elif choice == "6":
+            elif choice == "7":
                 while True:
 
                     print("\n====== MEMBER MENU ======")
@@ -888,7 +897,7 @@ while True: # Main menu system
                         print("Invalid option. Try again.")
 
             # --- BACK TO MAIN MENU ---
-            elif choice == "7":
+            elif choice == "8":
                 l.save_items()
                 l.save_members()
                 l.save_transactions()
@@ -903,9 +912,10 @@ while True: # Main menu system
             print("\n====== MEMBER MENU ======")
             print("1. View All Items")
             print("2. View Available Items")
-            print("3. Return item")
-            print("4. Pay fines")
-            print("5. Back to Start menu")
+            print("3. Borrow Item")
+            print("4. Return Item")
+            print("5. Pay fines")
+            print("6. Back to Start menu")
 
             choice = input("Enter choice: ")
 
@@ -918,12 +928,22 @@ while True: # Main menu system
             # --- VIEW AVAILABLE ---
             elif choice == "2":
                 for item in l.items.values():
-                    print("\n----------------")
                     if item.available:
+                        print("\n----------------")
                         print(item)
 
-            # --- RETURN ITEM ---
+            # --- BORROW ITEM ---
             elif choice == "3":
+                member_id = input("Member ID: ")
+                item_id = input("Item ID: ")
+
+                if l.borrow_item(member_id, item_id):
+                    l.save_items()
+                    l.save_transactions()
+                    print("Item borrowed successfully.")
+
+            # --- RETURN ITEM ---
+            elif choice == "4":
                 item_id = input("Item ID: ")
 
                 if l.return_item(item_id):
@@ -932,7 +952,7 @@ while True: # Main menu system
                     print("Item returned successfully.")
 
             # --- PAY FINES ---
-            elif choice == "4":
+            elif choice == "5":
 
                 member_id = input("Member ID: ")
                 member = l.get_member(member_id)
@@ -948,7 +968,7 @@ while True: # Main menu system
                     print("Member not found.")
 
             # --- BACK TO MAIN MENU ---
-            elif choice == "5":
+            elif choice == "6":
                 l.save_items()
                 l.save_members()
                 l.save_transactions()
